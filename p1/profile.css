@@ -1,0 +1,133 @@
+ /* ===== Profile Layout ===== */
+.profile-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    gap: 20px;
+}
+
+.profile-sidebar {
+    width: 220px;
+}
+
+.profile-main {
+    flex: 1;
+}
+
+/* ===== Header Section ===== */
+.profile-header {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e4e6e8;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.profile-header h1 {
+    font-size: 27px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.profile-meta {
+    color: #6a737c;
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+/* ===== Navigation Menu ===== */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    padding: 8px 0;
+}
+
+.nav-menu a {
+    color: #535a60;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-menu a:hover {
+    color: #0c0d0e;
+}
+
+/* ===== Content Cards ===== */
+.profile-card {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-section {
+    margin-bottom: 30px;
+}
+
+.profile-section h2 {
+    font-size: 21px;
+    font-weight: 400;
+    margin: 0 0 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e4e6e8;
+}
+
+.empty-state {
+    color: #6a737c;
+    font-size: 13px;
+    padding: 10px 0;
+}
+
+/* ===== Action Buttons ===== */
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.logout-btn {
+    color: #0077cc;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logout-btn:hover {
+    background-color: #f0f7fd;
+}
+
+.logout-icon {
+    font-size: 16px;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+    }
+    
+    .profile-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .username-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

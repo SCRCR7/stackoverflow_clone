@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up - Stack Overflow Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+    body {
+        background: #f6f7fa;
+        font-family: 'Inter', Arial, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+    }
+    .auth-container {
+        width: 100%;
+        max-width: 350px;
+        margin: 54px auto 0 auto;
+        padding: 32px 28px 28px 28px;
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 8px 32px #9cc6ef22, 0 1.5px 4px #a8b8c31a;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .auth-logo {
+        text-align: center;
+        margin-bottom: 26px;
+    }
+    .auth-logo img {
+        width: 140px;
+        height: auto;
+        filter: drop-shadow(0 2px 8px #2673b833);
+    }
+    .auth-header {
+        text-align: center;
+        margin-bottom: 22px;
+        width: 100%;
+    }
+    .auth-header h2 {
+        font-size: 1.5em;
+        font-weight: 700;
+        margin: 0 0 9px 0;
+        color: #2673b8;
+        letter-spacing: 0.01em;
+    }
+    .auth-form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: stretch;
+    }
+    .auth-form input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 12px 13px;
+        border: 1.3px solid #c1d9f3;
+        border-radius: 7px;
+        font-size: 1em;
+        background: #f7fbfe;
+        transition: border 0.2s, box-shadow 0.13s;
+        margin: 0; /* Remove default margin */
+        display: block;
+    }
+    .auth-form input:focus {
+        border: 1.6px solid #2673b8;
+        outline: none;
+        box-shadow: 0 0 0 2px #2673b820;
+    }
+    .auth-form button[type="submit"] {
+        background: linear-gradient(90deg, #2673b8, #43b0e0 100%);
+        color: white;
+        border: none;
+        border-radius: 7px;
+        padding: 12px 0;
+        font-weight: bold;
+        font-size: 1.08em;
+        cursor: pointer;
+        margin-top: 2px;
+        margin-bottom: 0;
+        transition: background 0.18s, box-shadow 0.13s;
+        box-shadow: 0 2px 8px #b6cbe81c;
+        letter-spacing: 0.03em;
+        width: 100%;
+        display: block;
+    }
+    .auth-form button[type="submit"]:hover {
+        background: linear-gradient(90deg, #1657a5 60%, #3586c5 100%);
+        box-shadow: 0 3px 14px #6ea8e92a;
+    }
+    .secondary-btn {
+        background: #fafdff !important;
+        color: #2673b8 !important;
+        border: 1px solid #2673b8 !important;
+        border-radius: 7px;
+        margin-top: 2px;
+        font-weight: 600;
+        font-size: 1em;
+        padding: 10px 0;
+        cursor: pointer;
+        transition: background 0.13s, color 0.13s, border 0.13s;
+        width: 100%;
+        display: block;
+    }
+    .secondary-btn:hover {
+        background: #e5f1fb !important;
+        color: #1657a5 !important;
+        border-color: #1657a5 !important;
+    }
+    .auth-footer {
+        margin-top: 17px;
+        font-size: 0.97em;
+        color: #5f6e77;
+        text-align: center;
+        width: 100%;
+    }
+    .auth-footer a {
+        color: #2673b8;
+        font-weight: 600;
+        text-decoration: none;
+        transition: color 0.13s;
+    }
+    .auth-footer a:hover {
+        text-decoration: underline;
+        color: #1657a5;
+    }
+    .error-box {
+        color: #d1383d;
+        padding: 11px 13px;
+        margin-bottom: 13px;
+        border: 1px solid #d1383d;
+        border-radius: 6px;
+        background-color: #fdf2f2;
+        font-size: 1em;
+        width: 100%;
+        display: none;
+        box-sizing: border-box;
+    }
+    @media (max-width: 480px) {
+        .auth-container {
+            max-width: 98vw;
+            padding: 16px 2vw;
+        }
+        .auth-logo img {
+            width: 100px;
+        }
+        .auth-header h2 {
+            font-size: 1.1em;
+        }
+        .auth-footer {
+            font-size: 0.95em;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-logo">
+         <img src="https://cdn.sstatic.net/Sites/stackoverflow/Img/logo.png" alt="Stack Overflow" width="150">
+        </div>
+        <div id="errorContainer" class="error-box"></div>
+        <form class="auth-form" id="signupForm" action="signup.php" method="post" onsubmit="return validateForm()">
+            <div class="auth-header">
+                <h2>Sign Up</h2>
+            </div>
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password (min 8 characters)" required>
+            <button type="submit" name="submit">Sign Up</button>
+            <button type="button" class="secondary-btn" onclick="window.location.href='login.html'">Already have an account? Log in</button>
+        </form>
+        <div class="auth-footer">
+            <p>By signing up, you agree to our <a href="#">terms of service</a></p>
+        </div>
+    </div>
+    <script>
+    function validateForm() {
+        const email = document.forms["signupForm"]["email"].value;
+        const password = document.forms["signupForm"]["password"].value;
+
+        // Email validation
+        if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+            document.getElementById('errorContainer').textContent = "Invalid email format!";
+            document.getElementById('errorContainer').style.display = 'block';
+            return false;
+        }
+
+        // Password validation
+        if (!/(?=.*\d)(?=.*[\W_]).{8,}/.test(password)) {
+            document.getElementById('errorContainer').textContent = "Password must be 8+ chars with 1 number and 1 special character!";
+            document.getElementById('errorContainer').style.display = 'block';
+            return false;
+        }
+
+        return true;
+    }
+
+    // Clear URL errors on load
+    document.addEventListener('DOMContentLoaded', function() {
+        history.replaceState({}, '', window.location.pathname);
+    });
+    </script>
+</body>
+</html>

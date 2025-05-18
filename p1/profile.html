@@ -1,0 +1,121 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title><?= htmlspecialchars($user['username']) ?> - Stack Overflow Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Sidebar Navigation -->
+        <div class="profile-sidebar">
+            <div class="profile-card">
+               <ul class="nav-menu">
+  <li><a href="summary.php">Summary</a></li>
+  <li><a href="answers.php">Answers</a></li>
+  <li><a href="questions.php">Questions</a></li>
+  <li><a href="tags.php">Tags</a></li>
+  <li><a href="articles.php">Articles</a></li>
+  <li><a href="badges.php">Badges</a></li>
+  <li><a href="following.php">Following</a></li>
+  <li><a href="bounties.php">Bounties</a></li>
+  <li><a href="reputation.php">Reputation</a></li>
+  <li><a href="actions.php">All actions</a></li>
+  <li><a href="responses.php">Responses</a></li>
+  <li><a href="votes.php">Votes</a></li>
+</ul>
+            
+            <div class="profile-card">
+                <h3>Accounts</h3>
+                <ul class="nav-menu">
+                    <li><strong>Stack Overflow</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="profile-main">
+            <div class="profile-header">
+                <div class="username-container">
+                    <h1><?= htmlspecialchars($user['username']) ?></h1>
+                    <div class="header-actions">
+                        <a href="logout.php" class="logout-btn">
+                            <span class="logout-icon">⎋</span> Log out
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-meta">
+                    Member for <?= $memberFor ?><br>
+                    Last seen <?= $lastSeen ?><br>
+                    Visited <?= $visitedDays ?>
+                </div>
+            </div>
+            
+            <!-- Summary Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Summary</h2>
+                    <p><strong>Reputation is how the community thanks you</strong></p>
+                    <p>When users upvote your helpful posts, you'll earn reputation and unlock new privileges.</p>
+                    <p><a href="#">Learn more about reputation and privileges</a></p>
+                </div>
+            </div>
+            
+            <!-- Answers Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Answers</h2>
+                    <div class="empty-state">You have not answered any questions</div>
+                </div>
+            </div>
+            
+            <!-- Questions Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Questions</h2>
+                    <div class="empty-state">You have not asked any questions</div>
+                </div>
+            </div>
+            
+            <!-- Tags Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Tags</h2>
+                    <div class="empty-state">You have not participated in any tags</div>
+                </div>
+            </div>
+            
+            <!-- Badges Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Badges</h2>
+                    <div class="empty-state">You have not earned any badges</div>
+                </div>
+            </div>
+            
+            <!-- Following Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Followed posts</h2>
+                    <div class="empty-state">You are not following any posts</div>
+                </div>
+            </div>
+            
+            <!-- Bounties Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Active bounties (0)</h2>
+                    <div class="empty-state">You have no active bounties</div>
+                </div>
+
+                            <!-- Articles Section -->
+            <div class="profile-section">
+                <div class="profile-card">
+                    <h2>Articles</h2>
+                    <div class="empty-state">You have no active articles</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
